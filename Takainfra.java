@@ -5,8 +5,8 @@ import lejos.robotics.SampleProvider;
 import lejos.robotics.filter.MeanFilter;
 
 /**
- * Takainfra class implements the use of infraredsensor in
- * the back of the remeote control vehicle and observes
+ * Takainfra class allows the use of infraredsensor in
+ * the back of the vehicle and observes
  * obstacles and commands that are given via remote controller.
  * @author zigi
  *
@@ -41,7 +41,7 @@ public class Takainfra extends Thread {
 	
 	/**
 	 * Returns the remote controller command
-	 * @return Integer
+	 * @return int the command given via remote controller
 	 */
 	public int getKomento() {
 		return this.komento;
@@ -49,7 +49,7 @@ public class Takainfra extends Thread {
 	
 	/**
 	 * Returns the distance from infrared sensor
-	 * @return float
+	 * @return float the distance to obstacle
 	 */
 	public float getEtaisyys() {
 		return this.etaisyys;
@@ -57,7 +57,7 @@ public class Takainfra extends Thread {
 	
 	/**
 	 * Checks the distance to possible obstacles and returns the average value
-	 * @return float[]
+	 * @return float[] distance to obstace as average from 25 previous measurements
 	 */
 	public float irDistance() {
 		SampleProvider distance = irSensor.getDistanceMode();
