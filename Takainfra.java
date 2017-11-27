@@ -5,8 +5,8 @@ import lejos.robotics.SampleProvider;
 import lejos.robotics.filter.MeanFilter;
 
 /**
- * Takainfra class allows the use of infraredsensor in
- * the back of the vehicle and observes
+ * Takainfra class allows the use of EV3IRSensor in
+ * the back of the vehicle that observes
  * obstacles and commands that are given via remote controller.
  * @author zigi
  *
@@ -19,17 +19,22 @@ public class Takainfra extends Thread {
 	
 	/**
 	 * Constructor for the class
-	 * @param sensori
+	 * @param sensori EV3IrSensor
 	 */
 	public Takainfra(EV3IRSensor sensori) {
 		this.irSensor = sensori;
 	}
 	
+	/**
+	 * This method only observes possible obstacles and updates the distance to etaisyys variable
+	 */
 	public void run() {
 		while (running) {
 			this.komento = irSensor.getRemoteCommand(0);
 			etaisyys = irDistance();
 		}
+		
+		this.irSensor.close();
 	}
 	
 	/**
@@ -41,14 +46,14 @@ public class Takainfra extends Thread {
 	
 	/**
 	 * Returns the remote controller command
-	 * @return int the command given via remote controller
+	 * @return Integer the command given via remote controller
 	 */
 	public int getKomento() {
 		return this.komento;
 	}
 	
 	/**
-	 * Returns the distance from infrared sensor
+	 * Returns the distance from EV3IRSensor
 	 * @return float the distance to obstacle
 	 */
 	public float getEtaisyys() {
@@ -57,7 +62,7 @@ public class Takainfra extends Thread {
 	
 	/**
 	 * Checks the distance to possible obstacles and returns the average value
-	 * @return float[] distance to obstace as average from 25 previous measurements
+	 * @return float[] distance to obstacle as average from 25 previous measurements
 	 */
 	public float irDistance() {
 		SampleProvider distance = irSensor.getDistanceMode();
