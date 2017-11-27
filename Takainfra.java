@@ -4,6 +4,13 @@ import lejos.hardware.sensor.EV3IRSensor;
 import lejos.robotics.SampleProvider;
 import lejos.robotics.filter.MeanFilter;
 
+/**
+ * Takainfra class implements the use of infraredsensor in
+ * the back of the remeote control vehicle and observes
+ * obstacles and commands that are given via remote controller.
+ * @author zigi
+ *
+ */
 public class Takainfra extends Thread {
 	private EV3IRSensor irSensor;
 	private int komento;
