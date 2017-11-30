@@ -20,6 +20,9 @@ public class Motors {
 	this.mv = new EV3LargeRegulatedMotor(MotorPort.A);
 	this.mr.synchronizeWith(new RegulatedMotor[] { mv });
 	this.me.setSpeed(100);
+	
+	this.mr.setSpeed(speed);
+	this.mv.setSpeed(speed);
 	}
 	public void stopMotors() {
 		//this.me.stop(true);
@@ -40,23 +43,41 @@ public class Motors {
 		this.mv.forward();
 	}
 	public void turnRight() {
-			this.me.rotateTo(-45, true);
+		this.me.rotateTo(-45, true);
 		
 	}
 	public void turnLeft() {
-		
-			this.me.rotateTo(45, true);
+		this.me.rotateTo(45, true);
 	}
 	public void moreSpeed() {
-		this.speed += 50;
-		this.mr.setSpeed(speed);
-		this.mv.setSpeed(speed);
+		int rspeed = this.mr.getSpeed() +30;
+		int lspeed = this.mv.getSpeed() +30;
+		if (rspeed < this.mr.getMaxSpeed() && lspeed < this.mv.getMaxSpeed()) {
+		this.mr.setSpeed(rspeed);
+		this.mv.setSpeed(lspeed);
+		} else {
+		LCD.drawString("Can't go faster", 0, 3);
+		}
+
+		//this.speed += 50;
+		//this.mr.setSpeed(speed);
+		//this.mv.setSpeed(speed);
 		
 	}
 	public void lessSpeed() {
-		this.speed -= 50;
-		this.mr.setSpeed(speed);
-		this.mv.setSpeed(speed);
+		int rspeed = this.mr.getSpeed() - 30;
+		int lspeed = this.mv.getSpeed() - 30;
+		if (rspeed < 0 && lspeed < 0) {
+		this.mr.setSpeed(0);
+		this.mv.setSpeed(0);
+		} else {
+		this.mr.setSpeed(rspeed);
+		this.mv.setSpeed(lspeed);
+		}
+
+		//int nopeus = mr.getSpeed();
+		//this.mr.setSpeed(nopeus - 50);
+		//this.mv.setSpeed(nopeus - 50);
 	}
 	
 	public void uTurn() {

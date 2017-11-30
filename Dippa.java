@@ -73,6 +73,9 @@ public class Dippa {
 			case 7:
 				motors.lessSpeed();
 				break;
+			case 8: 
+				motors.lessSpeed();
+				break;
 			case 9:
 				motors.straight();
 				break;
