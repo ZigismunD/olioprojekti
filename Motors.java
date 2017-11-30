@@ -1,13 +1,16 @@
+package olioprojekti;
+
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
 
 public class Motors {
-	private RegulatedMotor me;
-	private RegulatedMotor mr;
-	private RegulatedMotor mv;
+	private RegulatedMotor me;  // Moottori edessä
+	private RegulatedMotor mr;	// Moottori oikea takarengas
+	private RegulatedMotor mv;	// Moottori vasen takarengas
 	private int speed = 200;
+	
 	public Motors() {
 	this.me = new EV3MediumRegulatedMotor(MotorPort.B);
 	this.mr = new EV3LargeRegulatedMotor(MotorPort.D);
@@ -16,9 +19,9 @@ public class Motors {
 	this.me.setSpeed(100);
 	}
 	public void stopMotors() {
-		this.me.stop();
-		this.mr.stop();
-		this.mv.stop();
+		this.me.stop(true);
+		this.mr.stop(true);
+		this.mv.stop(true);
 	}
 	public void shutdownMotors() {
 		this.me.close();
@@ -40,13 +43,13 @@ public class Motors {
 		this.me.rotate(45);
 	}
 	public void moreSpeed() {
-		this.speed =+ 100;
+		this.speed += 100;
 		this.mr.setSpeed(speed);
 		this.mv.setSpeed(speed);
 		
 	}
 	public void lessSpeed() {
-		this.speed =- 100;
+		this.speed -= 100;
 		this.mr.setSpeed(speed);
 		this.mv.setSpeed(speed);
 	}

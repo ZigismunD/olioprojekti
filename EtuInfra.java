@@ -31,7 +31,6 @@ public class EtuInfra extends Thread {
 			this.etaisyys = irDistance();
 		}
 		
-		this.irSensor.close();
 	}
 	
 	

@@ -34,7 +34,6 @@ public class Takainfra extends Thread {
 			etaisyys = irDistance();
 		}
 		
-		this.irSensor.close();
 	}
 	
 	/**

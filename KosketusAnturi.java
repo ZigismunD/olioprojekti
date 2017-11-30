@@ -6,7 +6,7 @@ import lejos.hardware.Button;
 public class KosketusAnturi {
 
 	private EV3TouchSensor Kytkin;
-	float[] sample = new float[Kytkin.sampleSize()];
+	
 	
 	public KosketusAnturi(EV3TouchSensor ts) {
 		this.Kytkin = ts;
@@ -14,6 +14,7 @@ public class KosketusAnturi {
 	
 	public void Lukko() {
 		while(true) {
+			float[] sample = new float[Kytkin.sampleSize()];
 			Button.LEDPattern(2);
 			Kytkin.fetchSample(sample, 0);
 			if(sample[0] == 1) {
