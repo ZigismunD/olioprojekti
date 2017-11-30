@@ -20,7 +20,6 @@ public class Motors {
 	this.mv = new EV3LargeRegulatedMotor(MotorPort.A);
 	this.mr.synchronizeWith(new RegulatedMotor[] { mv });
 	this.me.setSpeed(100);
-	this.suunta = 0;
 	}
 	public void stopMotors() {
 		//this.me.stop(true);
