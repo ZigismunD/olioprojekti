@@ -65,7 +65,7 @@ public class Takainfra extends Thread {
 	 */
 	public float irDistance() {
 		SampleProvider distance = irSensor.getDistanceMode();
-		SampleProvider average = new MeanFilter(distance, 25);
+		SampleProvider average = new MeanFilter(distance, 5);
 		float[] sample = new float[average.sampleSize()];
 		average.fetchSample(sample, 0);
 		return sample[0];

@@ -1,9 +1,11 @@
 package olioprojekti;
 
+import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 
 public class Motors {
 	private RegulatedMotor me;  // Moottori edessä
@@ -43,14 +45,37 @@ public class Motors {
 		this.me.rotate(45);
 	}
 	public void moreSpeed() {
-		this.speed += 100;
+		this.speed += 50;
 		this.mr.setSpeed(speed);
 		this.mv.setSpeed(speed);
 		
 	}
 	public void lessSpeed() {
-		this.speed -= 100;
+		this.speed -= 50;
 		this.mr.setSpeed(speed);
 		this.mv.setSpeed(speed);
+	}
+	
+	public void uTurn() {
+		turnRight();
+		backupMotors();
+		Delay.msDelay(2500);
+		stopMotors();
+		turnLeft();
+		turnLeft();
+		driveMotors();
+		Delay.msDelay(2500);
+		stopMotors();
+	}
+	
+	public void testi() {
+		int asteluku = me.getTachoCount();
+		LCD.drawInt(asteluku, 1, 6);
+		Delay.msDelay(4000);
+		LCD.clear();
+	}
+	
+	public void straight() {
+		this.me.rotateTo(0, true);
 	}
 }

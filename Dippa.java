@@ -44,6 +44,9 @@ public class Dippa {
 			
 			if (etuThread.getEtaisyys() < 20 || takaThread.getEtaisyys() < 20) {
 				motors.stopMotors();
+				if (etuThread.getEtaisyys() < 20) {
+					motors.uTurn();
+				}
 			}
 			
 			switch (kasky) {
@@ -67,6 +70,9 @@ public class Dippa {
 				break;
 			case 7:
 				motors.lessSpeed();
+				break;
+			case 8:
+				motors.straight();
 				break;
 			}
 		}
