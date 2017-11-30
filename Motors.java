@@ -13,15 +13,17 @@ public class Motors {
 	private RegulatedMotor mv;	// Moottori vasen takarengas
 	private int speed = 200;
 	
+	
 	public Motors() {
 	this.me = new EV3MediumRegulatedMotor(MotorPort.B);
 	this.mr = new EV3LargeRegulatedMotor(MotorPort.D);
 	this.mv = new EV3LargeRegulatedMotor(MotorPort.A);
 	this.mr.synchronizeWith(new RegulatedMotor[] { mv });
 	this.me.setSpeed(100);
+	this.suunta = 0;
 	}
 	public void stopMotors() {
-		this.me.stop(true);
+		//this.me.stop(true);
 		this.mr.stop(true);
 		this.mv.stop(true);
 	}
@@ -39,10 +41,12 @@ public class Motors {
 		this.mv.forward();
 	}
 	public void turnRight() {
-		this.me.rotate(-45);
+			this.me.rotateTo(-45, true);
+		
 	}
 	public void turnLeft() {
-		this.me.rotate(45);
+		
+			this.me.rotateTo(45, true);
 	}
 	public void moreSpeed() {
 		this.speed += 50;
@@ -69,7 +73,7 @@ public class Motors {
 	}
 	
 	public void testi() {
-		int asteluku = me.getTachoCount();
+		int asteluku = this.me.getTachoCount();
 		LCD.drawInt(asteluku, 1, 6);
 		Delay.msDelay(4000);
 		LCD.clear();

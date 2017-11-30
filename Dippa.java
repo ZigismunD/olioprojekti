@@ -34,9 +34,11 @@ public class Dippa {
 		
 		
 		
+		
 		KosketusAnturi kosketusAnturi = new KosketusAnturi(touchSensori);
 		
 		kosketusAnturi.Lukko();
+		motors.straight();
 		LCD.clear();
 		
 		while (!Button.ESCAPE.isDown()) {
@@ -44,9 +46,9 @@ public class Dippa {
 			
 			if (etuThread.getEtaisyys() < 20 || takaThread.getEtaisyys() < 20) {
 				motors.stopMotors();
-				if (etuThread.getEtaisyys() < 20) {
-					motors.uTurn();
-				}
+				//if (etuThread.getEtaisyys() < 20) {
+					//motors.uTurn();
+				//}
 			}
 			
 			switch (kasky) {
@@ -71,7 +73,7 @@ public class Dippa {
 			case 7:
 				motors.lessSpeed();
 				break;
-			case 8:
+			case 9:
 				motors.straight();
 				break;
 			}
