@@ -10,28 +10,36 @@ import lejos.utility.Delay;
 public class Dippa {
 
 	public static void main(String[] args) {
+		
 		LCD.drawString("1", 1, 1);
 		EV3IRSensor takaSensori = new EV3IRSensor(SensorPort.S4);
 		LCD.clear();
 		LCD.drawString("2", 1, 1);
+		
 		EV3IRSensor etuSensori = new EV3IRSensor(SensorPort.S3);
 		LCD.clear();
 		LCD.drawString("3", 1, 1);
+		
 		EV3TouchSensor touchSensori = new EV3TouchSensor(SensorPort.S1);
 		LCD.clear();
 		LCD.drawString("4", 1, 1);
+		
 		EtuInfra etuThread = new EtuInfra(etuSensori);
 		LCD.clear();
 		LCD.drawString("5", 1, 1);
+		
 		Takainfra takaThread = new Takainfra(takaSensori);
 		LCD.clear();
 		LCD.drawString("6", 1, 1);
+		
 		Motors motors = new Motors();
 		LCD.clear();
 		LCD.drawString("7", 1, 1);
+		
 		Aani aanet = new Aani();
 		LCD.clear();
 		LCD.drawString("8", 1, 1);
+		
 		etuThread.start();
 		takaThread.start();
 		aanet.start();
@@ -46,7 +54,7 @@ public class Dippa {
 		motors.straight();
 		LCD.clear();
 		Delay.msDelay(500);
-		aanet.efekti(2);
+		
 		
 		while (!Button.ESCAPE.isDown()) {
 			int kasky = takaThread.getKomento();
@@ -92,6 +100,7 @@ public class Dippa {
 				break;
 			}
 		}
+		
 		aanet.running();
 		etuThread.running();
 		takaThread.running();
