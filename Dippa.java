@@ -67,6 +67,7 @@ public class Dippa {
 				break;
 			case 2:
 				motors.driveMotors();
+				aanet.efekti(2);
 				break;
 			case 3:
 				motors.turnRight();
