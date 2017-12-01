@@ -34,6 +34,7 @@ public class Dippa {
 		LCD.drawString("8", 1, 1);
 		etuThread.start();
 		takaThread.start();
+		aanet.start();
 		
 		
 		
@@ -41,8 +42,11 @@ public class Dippa {
 		KosketusAnturi kosketusAnturi = new KosketusAnturi(touchSensori);
 		
 		kosketusAnturi.Lukko();
+		aanet.efekti(1);
 		motors.straight();
 		LCD.clear();
+		Delay.msDelay(500);
+		aanet.efekti(2);
 		
 		while (!Button.ESCAPE.isDown()) {
 			int kasky = takaThread.getKomento();
@@ -87,7 +91,7 @@ public class Dippa {
 				break;
 			}
 		}
-		
+		aanet.running();
 		etuThread.running();
 		takaThread.running();
 		Delay.msDelay(500);
