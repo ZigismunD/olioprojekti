@@ -26,7 +26,6 @@ public class Motors {
 	this.mv.setSpeed(speed);
 	}
 	public void stopMotors() {
-		//this.me.stop(true);
 		this.mr.stop(true);
 		this.mv.stop(true);
 	}
@@ -66,8 +65,8 @@ public class Motors {
 		int rspeed = this.mr.getSpeed() - 30;
 		int lspeed = this.mv.getSpeed() - 30;
 		if (rspeed < 0 && lspeed < 0) {
-		this.mr.setSpeed(0);
-		this.mv.setSpeed(0);
+		this.mr.setSpeed(100);
+		this.mv.setSpeed(100);
 		} else {
 		this.mr.setSpeed(rspeed);
 		this.mv.setSpeed(lspeed);

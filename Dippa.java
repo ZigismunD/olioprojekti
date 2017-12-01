@@ -53,8 +53,11 @@ public class Dippa {
 		aanet.efekti(1);
 		motors.straight();
 		LCD.clear();
+<<<<<<< HEAD
 		Delay.msDelay(500);
 		
+=======
+>>>>>>> 7113e2c61f3287552fc897bcecef58c31a1fdf54
 		
 		while (!Button.ESCAPE.isDown()) {
 			int kasky = takaThread.getKomento();
@@ -66,6 +69,10 @@ public class Dippa {
 			}
 			
 			if (takaThread.getEtaisyys() < 20) {
+				motors.stopMotors();
+				motors.straight();
+				motors.driveMotors();
+				Delay.msDelay(1000);
 				motors.stopMotors();
 			}
 			
