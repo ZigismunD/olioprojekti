@@ -1,3 +1,5 @@
+package olioprojekti;
+
 import java.io.File;
 
 import lejos.hardware.Sound;

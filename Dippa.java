@@ -29,6 +29,9 @@ public class Dippa {
 		Motors motors = new Motors();
 		LCD.clear();
 		LCD.drawString("7", 1, 1);
+		Aani aanet = new Aani();
+		LCD.clear();
+		LCD.drawString("8", 1, 1);
 		etuThread.start();
 		takaThread.start();
 		
@@ -44,11 +47,14 @@ public class Dippa {
 		while (!Button.ESCAPE.isDown()) {
 			int kasky = takaThread.getKomento();
 			
-			if (etuThread.getEtaisyys() < 20 || takaThread.getEtaisyys() < 20) {
+			if (etuThread.getEtaisyys() < 20) {
 				motors.stopMotors();
-				//if (etuThread.getEtaisyys() < 20) {
-					//motors.uTurn();
-				//}
+				motors.straight();
+				motors.uTurn();
+			}
+			
+			if (takaThread.getEtaisyys() < 20) {
+				motors.stopMotors();
 			}
 			
 			switch (kasky) {

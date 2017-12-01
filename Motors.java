@@ -1,5 +1,6 @@
 package olioprojekti;
 
+
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
@@ -59,9 +60,6 @@ public class Motors {
 		LCD.drawString("Can't go faster", 0, 3);
 		}
 
-		//this.speed += 50;
-		//this.mr.setSpeed(speed);
-		//this.mv.setSpeed(speed);
 		
 	}
 	public void lessSpeed() {
@@ -75,21 +73,26 @@ public class Motors {
 		this.mv.setSpeed(lspeed);
 		}
 
-		//int nopeus = mr.getSpeed();
-		//this.mr.setSpeed(nopeus - 50);
-		//this.mv.setSpeed(nopeus - 50);
 	}
 	
 	public void uTurn() {
+		while (taka)
+		int speed = this.mr.getSpeed();
+		int max = (int) this.mr.getMaxSpeed();
+		this.mr.setSpeed(max);
+		this.mv.setSpeed(max);
 		turnRight();
 		backupMotors();
-		Delay.msDelay(2500);
+		Delay.msDelay(2600);
 		stopMotors();
 		turnLeft();
-		turnLeft();
+		Delay.msDelay(250);
 		driveMotors();
-		Delay.msDelay(2500);
+		Delay.msDelay(2600);
+		straight();
 		stopMotors();
+		this.mr.setSpeed(speed);
+		this.mv.setSpeed(speed);
 	}
 	
 	public void testi() {
