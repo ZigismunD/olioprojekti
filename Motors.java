@@ -76,7 +76,7 @@ public class Motors {
 	}
 	
 	public void uTurn() {
-		while (taka)
+		
 		int speed = this.mr.getSpeed();
 		int max = (int) this.mr.getMaxSpeed();
 		this.mr.setSpeed(max);
