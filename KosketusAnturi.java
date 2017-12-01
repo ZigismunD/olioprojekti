@@ -14,9 +14,9 @@ public class KosketusAnturi {
 	}
 	
 	public void Lukko() {
+		LCD.drawString("Auto on lukossa.", 2, 4);
 		while(true) {
 			float[] sample = new float[Kytkin.sampleSize()];
-			LCD.drawString("Auto on lukossa.", 2, 4);
 			Button.LEDPattern(2);
 			Kytkin.fetchSample(sample, 0);
 			if(sample[0] == 1) {
