@@ -60,7 +60,7 @@ public class Logiikka {
 		/**
 		*This part prevents the robots movement until the touch sensor is activated.
 		*/
-		kosketusAnturi.Lukko();
+		kosketusAnturi.lukko();
 		aanet.efekti(1);
 		motors.straight();
 		LCD.clear();
