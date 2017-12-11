@@ -4,15 +4,24 @@ package olioprojekti;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
-
+/**
+ * 
+ * @author Topias Renko
+ *
+ */
 public class KosketusAnturi {
 
 	private EV3TouchSensor Kytkin;
-	
+	/**
+	 * Konstruktori KosketusAnturi luokalle.
+	 * @param ts
+	 */
 	public KosketusAnturi(EV3TouchSensor ts) {
 		this.Kytkin = ts;
 	}
-	
+	/**
+	 * Metodi Lukko kutsuttaessa j‰‰ looppiin niin kauaksi aikaa kunnes kosketusanturia painetaan.
+	 */
 	public void Lukko() {
 		LCD.drawString("Auto on lukossa.", 2, 4);
 		while(true) {
