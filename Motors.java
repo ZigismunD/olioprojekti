@@ -1,7 +1,10 @@
+package olioprojekti;
+
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 
 /**
  * <h1>AutoMotors<h1>
@@ -12,15 +15,16 @@ import lejos.robotics.RegulatedMotor;
  * @author omvir
  *
  */
-/**
- * this method activates the motoes and sets their initial speed.
- */
+
 public class Motors {
 	private RegulatedMotor me;
 	private RegulatedMotor mr;
 	private RegulatedMotor mv;
 	private int speed = 200;
 
+	/**
+	 * this method activates the motors and sets their initial speed.
+	 */
 	public Motors() {
 		this.me = new EV3MediumRegulatedMotor(MotorPort.B);
 		this.mr = new EV3LargeRegulatedMotor(MotorPort.D);
@@ -100,5 +104,32 @@ public class Motors {
 		this.speed = -100;
 		this.mr.setSpeed(speed);
 		this.mv.setSpeed(speed);
+	}
+	/**
+	 * This method makes the robot do three point turn and head back.
+	 */
+	public void uTurn() {
+		int speed = this.mr.getSpeed();
+		int max = (int) this.mr.getMaxSpeed();
+		this.mr.setSpeed(max);
+		this.mv.setSpeed(max);
+		turnRight();
+		backupMotors();
+		Delay.msDelay(2600);
+		stopMotors();
+		turnLeft();
+		Delay.msDelay(250);
+		driveMotors();
+		Delay.msDelay(2600);
+		straight();
+		stopMotors();
+		this.mr.setSpeed(speed);
+		this.mv.setSpeed(speed);
+	}
+	/**
+	 * This method will straighten the wheels
+	 */
+	public void straight() {
+		this.me.rotateTo(0, true);
 	}
 }
