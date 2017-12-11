@@ -7,7 +7,7 @@ import lejos.robotics.filter.MeanFilter;
 /**
  * EtuInfra allows the use of EV3IRSensor in front of the vehicle that observes 
  * obstacles that come in it's way
- * @author zigi
+ * @author Sami Sikkilä
  *
  */
 public class EtuInfra extends Thread {
