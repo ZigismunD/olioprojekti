@@ -1,11 +1,4 @@
 package olioprojekti;
-
-import lejos.hardware.Button;
-import lejos.hardware.lcd.LCD;
-import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3IRSensor;
-import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.utility.Delay;
 /**
  * 
  * @author Skynet
