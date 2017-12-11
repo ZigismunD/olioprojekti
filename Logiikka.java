@@ -6,9 +6,18 @@ import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.utility.Delay;
-
+/**
+* <h1>Logiikka</h1>
+*This contains the operating logic of the robot.
+*It starts the threads listening for commands and sensor input.
+*It also translates that info into orders for the engines.
+*
+* @author Sami Sikilä
+*/
 public class Logiikka {
-	
+	/**
+	* Run method that activates the robots sensors and threads
+	*/
 	public void run() {
 		
 		LCD.drawString("1", 1, 1);
@@ -48,14 +57,18 @@ public class Logiikka {
 		
 		
 		KosketusAnturi kosketusAnturi = new KosketusAnturi(touchSensori);
-		
+		/**
+		*This part prevents the robots movement until the touch sensor is activated.
+		*/
 		kosketusAnturi.Lukko();
 		aanet.efekti(1);
 		motors.straight();
 		LCD.clear();
 		Delay.msDelay(500);
 		
-		
+		/**
+		* This loop handles listening for and relaying commands to motors.
+		*/
 		while (!Button.ESCAPE.isDown()) {
 			int kasky = takaThread.getKomento();
 			
@@ -100,7 +113,9 @@ public class Logiikka {
 				break;
 			}
 		}
-		
+		/**
+		*This part deactivates all sensors and motors.
+		*/
 		aanet.running();
 		etuThread.running();
 		takaThread.running();
