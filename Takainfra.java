@@ -8,7 +8,7 @@ import lejos.robotics.filter.MeanFilter;
  * Takainfra class allows the use of EV3IRSensor in
  * the back of the vehicle that observes
  * obstacles and commands that are given via remote controller.
- * @author zigi
+ * @author Sami Sikkilä
  *
  */
 public class Takainfra extends Thread {

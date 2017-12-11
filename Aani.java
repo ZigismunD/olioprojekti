@@ -8,7 +8,7 @@ import lejos.hardware.Sound;
 /**
  * Aani class allows the program to play sounds.
  * Aani runs in a thread so program can still take commands from remote control.
- * @author zigi
+ * @author Sami Sikkilä
  *
  */
 public class Aani extends Thread {
