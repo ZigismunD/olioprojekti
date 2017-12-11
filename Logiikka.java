@@ -15,6 +15,10 @@ import lejos.utility.Delay;
 * @author Sami Sikilä
 */
 public class Logiikka {
+	
+	public Logiikka(){
+		
+	}
 	/**
 	* Run method that activates the robots sensors and threads
 	*/
