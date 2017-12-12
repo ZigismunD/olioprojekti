@@ -76,14 +76,14 @@ public class Motors {
 	 * This turns the robots front wheels right 45 degrees.
 	 */
 	public void turnRight() {
-		this.me.rotate(-45);
+		this.me.rotateTo(-45, true);
 	}
 
 	/**
 	 * This turns the robots front wheels left 45 degrees.
 	 */
 	public void turnLeft() {
-		this.me.rotate(45);
+		this.me.rotateTo(45, true);
 	}
 
 	/**
