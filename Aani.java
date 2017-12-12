@@ -8,7 +8,7 @@ import lejos.hardware.Sound;
 /**
  * Aani class allows the program to play sounds.
  * Aani runs in a thread so program can still take commands from remote control.
- * @author Sami Sikkilä
+ * @author Erik Huitti ja Sami Sikkilä
  *
  */
 public class Aani extends Thread {
@@ -56,7 +56,7 @@ public class Aani extends Thread {
 		Sound.playSample(auto);
 	}
 	/**
-	 * Plays a short version of the son Ievan Polkka.
+	 * Plays a short version of the song Ievan Polkka.
 	 */
 	public void kappale() {
 		Sound.playSample(musiikki);
